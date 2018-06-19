@@ -1,16 +1,94 @@
-﻿.index p{
+﻿.index p {
     font-size: 20px;
 }
 
 .index > .header {
     text-align: center;
+    background: linear-gradient(180deg, #084400, #000000);
+    background-size: 400% 400%;
+    -webkit-animation: headerAnimation 21s ease infinite;
+    -moz-animation: headerAnimation 21s ease infinite;
+    -o-animation: headerAnimation 21s ease infinite;
+    animation: headerAnimation 21s ease infinite;
+    color: #fff;
+    padding-top: 250px;
+}
+
+    .index > .header > .container {
+    }
+
+        .index > .header > .container > h1 {
+            font-size: 100px;
+            user-select: none;
+        }
+
+        .index > .header > .container > h2 {
+            font-size: 50px;
+            font-weight: lighter;
+            user-select: none;
+        }
+
+@-webkit-keyframes headerAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+
+    50% {
+        background-position: 50% 100%
+    }
+
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@-moz-keyframes headerAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+
+    50% {
+        background-position: 50% 100%
+    }
+
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@-o-keyframes headerAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+
+    50% {
+        background-position: 50% 100%
+    }
+
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@keyframes headerAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+
+    50% {
+        background-position: 50% 100%
+    }
+
+    100% {
+        background-position: 50% 0%
+    }
 }
 
 .index > .slide {
     height: 100vh;
 }
 
-.index .space1{
+.index .space1 {
     display: inline-block;
     width: 25px;
 }
@@ -20,7 +98,7 @@
     width: 50px;
 }
 
-.index .codeContainer{
+.index .codeContainer {
     font-size: 20px;
     font-family: serif;
     color: darkblue;
@@ -30,4 +108,15 @@
     width: 250px;
     height: 350px;
     position: absolute;
+}
+
+.index > .content{
+    padding: 0 80px 0 80px;
+}
+
+.index > .separator{
+    height: 2px;
+    background-color: #c2c2c2;
+    width: 60%;
+    margin: 40px auto 40px auto;
 }

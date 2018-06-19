@@ -19,9 +19,9 @@ $(() => {
     LMTCookieBoot();
     $.getScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js')
         .done(() => {
-            $.getScript('https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js')
+            $.getScript('https://cdn.jsdelivr.net/gh/twbs/bootstrap/dist/js/bootstrap.bundle.min.js')
                 .done(() => {
-                    $.getScript('https://cdn.rawgit.com/airbnb/lottie-web/master/build/player/lottie.min.js').done(() => {
+                    $.getScript('https://cdn.jsdelivr.net/gh/airbnb/lottie-web/build/player/lottie.min.js').done(() => {
                         LMTCDNDone = true;
                     });
                 });
@@ -120,7 +120,7 @@ function LMTDomBoot() {
                     ele.value = randomIntInclusive(parseInt(params[0]), parseInt(params[1]));
                 });
             //lmt-accord
-            $("[lmt-accord]").accordion();
+            $("[lmt-accord]").accordion({heightStyle: "content"});
             //lmt-autocomp
             $.each($("[lmt-autocomp]"),
                 (ind, ele) => {
@@ -227,27 +227,30 @@ function LMTDomBoot() {
                     });
                 });
             //lmt-scroll-move
-            $.each($("[lmt-scroll-move]"), (ind, ele) => {
-                let moveDist = parseInt(ele.getAttribute("lmt-scroll-move"));
-                let isMoveRight = moveDist >= 0;
-                if (ele.style.left != "") {
-                    ele.lmtLeft = parseInt(ele.style.left);
-                }
-                else if (ele.style.right != "") {
-                    ele.lmtLeft = ele.getBoundingClientRect().left - ele.parentElement.getBoundingClientRect().left;
-                }
-                else {
-                    ele.lmtLeft = 0;
-                }
-                window.addEventListener("scroll", () => {
-                    let diff = document.documentElement.clientHeight - ele.getBoundingClientRect().top;
-                    if (diff >= 0 && ele.getBoundingClientRect().bottom > 0) {
-                        var dist = diff / 2 * (isMoveRight ? 1 : -1);
-                        if ((dist < 0 && dist < moveDist) || (dist >= 0 && dist > moveDist)) return;
-                        ele.style.left = (ele.lmtLeft + dist) + "px";
+            setTimeout(() => {
+                $.each($("[lmt-scroll-move]"), (ind, ele) => {
+                    if (ele.lmtLeft != undefined) return;
+                    let moveDist = parseInt(ele.getAttribute("lmt-scroll-move"));
+                    let isMoveRight = moveDist >= 0;
+                    if (ele.style.left != "") {
+                        ele.lmtLeft = parseInt(ele.style.left);
                     }
+                    else if (ele.style.right != "") {
+                        ele.lmtLeft = ele.getBoundingClientRect().left - ele.parentElement.getBoundingClientRect().left;
+                    }
+                    else {
+                        ele.lmtLeft = 0;
+                    }
+                    window.addEventListener("scroll", () => {
+                        let diff = document.documentElement.clientHeight - ele.getBoundingClientRect().top;
+                        if (diff >= 0 && ele.getBoundingClientRect().bottom > 0) {
+                            var dist = diff / 2 * (isMoveRight ? 1 : -1);
+                            if ((dist < 0 && dist < moveDist) || (dist >= 0 && dist > moveDist)) return;
+                            ele.style.left = (ele.lmtLeft + dist) + "px";
+                        }
+                    });
                 });
-            });
+            }, 500);
             //lmt-fx
             $.each($("[lmt-fx]"), (ind, ele) => {
                 let params = getValParse(ele.getAttribute("lmt-fx"), "").split(',');

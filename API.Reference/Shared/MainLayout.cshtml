@@ -1,11 +1,29 @@
-@inherits BlazorLayoutComponent
-
+﻿@inherits BlazorLayoutComponent
+<div class="btnHamburger" onclick=@NavOpen>☰</div>
 <div class="sidebar">
     <NavMenu />
 </div>
 
-<div class="main">
-        @Body
+<div class="main" onclick=@NavClose>
+    @Body
 </div>
 
-<Footer/>
+<Footer />
+
+@functions{
+    private void NavOpen()
+    {
+        if (_(".navMenu").Css("display") != "none") return;
+        _(".navMenu").Attr("lmt-fx", "slide,navOpen");
+        LMTBehaviours();
+        Eval("navOpen()");
+    }
+
+    private void NavClose()
+    {
+        if (_(".navMenu").Css("display") == "none") return;
+        _(".navMenu").Attr("lmt-fx", "drop,navClose");
+        LMTBehaviours();
+        Eval("navClose()");
+    }
+}

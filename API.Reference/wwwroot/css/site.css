@@ -3,3 +3,43 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.sidebar {
+    display: block;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.btnHamburger {
+    position: fixed;
+    font-size: 30px;
+    color: gray;
+    cursor: pointer;
+    left: 5px;
+}
+
+.sidebar > *{
+    z-index: 1;
+}
+
+    .sidebar > .navMenu{
+        font-size: 20px;
+    }
+
+        .sidebar > .navMenu .ui-state-active {
+            background-color: #084400;
+            border: none;
+        }
+
+.footer {
+    display: block;
+    height: 200px;
+    background-color: #084400;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 20px;
+    padding: 30px 50px 50px 30px;
+}

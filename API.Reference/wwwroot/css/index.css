@@ -1,0 +1,33 @@
+﻿.index p{
+    font-size: 20px;
+}
+
+.index > .header {
+    text-align: center;
+}
+
+.index > .slide {
+    height: 100vh;
+}
+
+.index .space1{
+    display: inline-block;
+    width: 25px;
+}
+
+.index .space2 {
+    display: inline-block;
+    width: 50px;
+}
+
+.index .codeContainer{
+    font-size: 20px;
+    font-family: serif;
+    color: darkblue;
+}
+
+.index .scrollDemo img {
+    width: 250px;
+    height: 350px;
+    position: absolute;
+}

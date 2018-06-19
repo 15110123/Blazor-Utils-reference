@@ -1,0 +1,101 @@
+﻿@page "/"
+
+<link rel="stylesheet" href="/css/index.css" />
+<div class="index">
+    <div class="slide header">
+        <h1>A new style of web programming</h1>
+        <h1>Less code. More content focus.</h1>
+    </div>
+    <div>
+        <h2>Behaviour attributes: faster</h2>
+        <p>Stop copying the same codes over and over again. Behaviour attributes give you better ways to make things simpler.</p>
+        <div lmt-grid="md-6,md-6" class="codeContainer">
+            <div>
+                <div>
+                    <h2>Original Bootstrap 4</h2>
+                    @("<div class=\"container\"")
+                    <br />
+                    <span class="space1" />@("<div class=\"row\">")
+                    <br />
+                    <span class="space2" />@("<div class=\"col-md-6\">")
+                    <br />
+                    <span class="space2" />@("</div>")
+                    <br />
+                    <span class="space2" />@("<div class=\"col-md-6\">")
+                    <br />
+                    <span class="space2" />@("</div>")
+                    <br />
+                    <span class="space1" />@("</div>")
+                    <br />
+                    @("</div>")
+                </div>
+                <div>
+                    <h2>Behaviour attribute (lmt-grid)</h2>
+                    @("<div lmt-grid=\"md-6,md-6\">")
+                    <br />
+                    <span class="space1" />@("<div>")
+                    <br />
+                    <span class="space2" />@("<div>")
+                    <br />
+                    <span class="space2" />@("</div>")
+                    <br />
+                    <span class="space2" />@("<div>")
+                    <br />
+                    <span class="space2" />@("</div>")
+                    <br />
+                    <span class="space1" />@("</div>")
+                    <br />
+                    @("</div>")
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------->
+    <div>
+        <h2>Easier!</h2>
+        <p>Ready to make stunning websites, with stunning effects.</p>
+        <div lmt-grid="md-4,md-8" lmt-grid-fluid="true" class="codeContainer scrollDemo">
+            <div>
+                <div>
+                    <h3>Codes:</h3>
+                    @("<div style=\"position: relative\"")
+                    <br />
+                    <span class="space1" />@("<img style=\"left: 0px\" lmt-scroll-move=\"100\" src=\"...\" />")
+                    <br />
+                    <span class="space1" />@("<img style=\"right: 0px\" lmt-scroll-move=\"-100\" src=\"...\" />")
+                    <br />
+                    @("</div>")
+                </div>
+                <div>
+                    <h3>Result:</h3>
+                    <div style="position: relative; height: 350px">
+                        <img style="left: 0px" lmt-scroll-move="100" src="/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png" />
+                        <img style="right: 0px" lmt-scroll-move="-100" src="/img/android_app.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------->
+<div>
+    <h2>C# front-end in jQuery style</h2>
+    <p>jQuery is an awesome library no doubt. See it in action with Blazor:</p>
+    <div lmt-grid="md-8,md-4">
+        <div>
+            <div class="codeContainer">
+                @("<button id=\"btnClickMe\" onclick=@(() => { _(\"#btnClickMe\").Text(\"Clicked!\"); })>Click me!</button>")
+            </div>
+            <div>
+                <button id="btnClickMe" onclick=@(() => { _("#btnClickMe").Text("Clicked!"); })>Click me!</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

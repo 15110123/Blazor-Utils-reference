@@ -1,0 +1,24 @@
+﻿@page "/behaviourAttr/lmtselect"
+
+<AttrDetail name="lmt-select" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Allow child HTML components to be selectable.">
+    <p>All of the children in the lmt-select container can be individually selected or multi-style (by holding left mouse button and drag/ctrl key and select).</p>
+    <Demo codes=@(new[]{"<style>", ".ui-selected{", "                background-color: yellow;", "}", "</style>", "<ol lmt-select>", "            <li>Select me first</li>", "<li>Then select me</li>", "<li>I'm the last one</li>", "</ol>"})>
+        <style>
+            .ui-selected{
+                background-color: yellow;
+            }
+        </style>
+        <ol lmt-select>
+            <li>Select me first</li>
+            <li>Then select me</li>
+            <li>I'm the last one</li>
+        </ol>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

@@ -1,0 +1,18 @@
+﻿@page "/behaviourAttr/lmtresize"
+
+<AttrDetail name="lmt-resize" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Allow a HTML component to be resizable.">
+    <p>lmt-resize enables a HTML component to be resizable by mouse. Just hold the left mouse button onto the bottom/right borders or bottom-right corner and move.</p>
+    <p>This attribute works best with container tag (div, span). If you use it with others (img for example), wrap them with lmt-resize divs or spans.</p>
+    <Demo codes=@(new[]{"<div style=\"width: 200px; height: 200px; border: 1px solid #000\" lmt-resize>", "<label>Drag me!</label>", "</div>"})>
+        <div style="width: 200px; height: 200px; border: 1px solid #000" lmt-resize>
+            <label>Resize me!</label>
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

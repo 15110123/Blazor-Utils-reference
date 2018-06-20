@@ -1,0 +1,23 @@
+﻿<div class="demo">
+    <h2>Demo</h2>
+    <div lmt-grid="md" lmt-grid-fluid="true">
+        <div>
+            <div class="codeContainer">
+                @foreach (var ele in codes)
+                {
+                    <div style="text-indent: 0">@ele</div>
+                }
+            </div>
+            <div class="resultContainer">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions{
+    [Parameter]
+    private string[] codes { get; set; }
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+}

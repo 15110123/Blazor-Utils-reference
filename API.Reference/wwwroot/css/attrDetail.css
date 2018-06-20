@@ -1,0 +1,28 @@
+﻿.attrDetail {
+    padding: 40px 80px 0 80px;
+}
+
+    .attrDetail * {
+        font-size: 23px;
+        text-indent: 50px;
+        font-weight: lighter;
+    }
+
+    .attrDetail h1 {
+        font-size: 60px;
+        text-indent: 0px;
+        font-weight: normal;
+    }
+
+    .attrDetail h2 {
+        font-size: 40px;
+        color: #414141;
+        margin: 20px 0 20px 0;
+        text-indent: 30px;
+        font-weight: normal;
+    }
+
+.attrDetail table thead tr td{
+    text-align: center;
+    font-weight: bold;
+}

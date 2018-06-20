@@ -1,0 +1,19 @@
+﻿@page "/behaviourAttr/lmtsort"
+
+<AttrDetail name="lmt-sort" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Allow child HTML components to be sortable.">
+    <p>While holding left mouse on an item and moving, all of the children in the lmt-sort container can be sorted based on the client's movements.</p>
+    <Demo codes=@(new[]{"<ul lmt-sort>", "<li>Sort me</li>", "<li>No, sort me!</li>", "<li>Who cares? Everyone will be sorted, duh!</li>", "</ul>"})>
+        <ul lmt-sort>
+            <li>Sort me</li>
+            <li>No, sort me!</li>
+            <li>Who cares? Everyone will be sorted, duh!</li>
+        </ul>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

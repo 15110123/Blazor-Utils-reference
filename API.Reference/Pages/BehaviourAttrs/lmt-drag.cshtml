@@ -1,0 +1,16 @@
+﻿@page "/behaviourAttr/lmtdrag"
+
+<AttrDetail name="lmt-drag" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Allow a HTML component to be draggable.">
+    <p>lmt-drag enables a HTML component to be draggable by mouse. Just hold the left mouse button onto the element and move.</p>
+    <Demo codes=@(new[]{"<div style=\"width: 200px; height: 200px; border: 1px solid #000\" lmt-drag>", "<label>Drag me!</label>", "</div>"})>
+        <div style="width: 200px; height: 200px; border: 1px solid #000" lmt-drag>
+        <label>Drag me!</label>
+        </div>
+    </Demo>
+</AttrDetail>
+@functions{      
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

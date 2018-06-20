@@ -1,0 +1,15 @@
+﻿@page "/behaviourAttr/lmtreadonly"
+
+<AttrDetail name="lmt-readonly" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Make a HTML component read-only and show a warning tooltip when being focused." value="Text content for the tooltip. If not set, tooltip feature will be disabled.">
+    <p>Make a HTML component read-only. If user focuses to the element (by clicking them for instance), a tooltip with your text content will show.</p>
+    <Demo codes=@(new[]{"<input style=\"width: 100%\" type=\"text\" value=\"trying to change my value?\" lmt-readonly=\"No, you can't =]]\" />"})>
+        <input style="width: 100%" type="text" value="trying to change my value?" lmt-readonly="No, you can't =]]" />
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

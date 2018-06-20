@@ -1,0 +1,31 @@
+﻿@page "/behaviourattr"
+
+<div class="behaviourAttr">
+    <link rel="stylesheet" href="/css/behaviourAttr.css"/>
+    <article>
+        <h1>Behaviour Attributes</h1>
+        <p>These APIs provide the best of both worlds: write less, do more.</p>
+        <p>Behaviour Attributes act like normal HTML ones. We want developers to feel better when doing front-end works with Blazor. In other words, HTML components can be much more flexible by just typing some codes, their behaviours include:</p>
+        <ol>
+            <li>Responses to client (lmt-drag, lmt-resize,...)</li>
+            <li>Generating value (lmt-val-guid, lmt-val-num)</li>
+            <li>Containing effects (lmt-bm)</li>
+        </ol>
+        <p>Please note that some attributes cannot stand alone. They have a role of providing paramater values to the main one. We call them parameter attributes. You should check out each features for more details.</p>
+        <p>Although custom attributes can be theoretically used without Blazor, most of the functions in our Js file are wrapped with Blazor methods. As a result, none of the features of Blazor Utils can work without Blazor technology.</p>
+        <p>Please call LMTBehaviours() right after finishing rendering. Behaviour attributes won't work in real time. That method is a way to make APIs refresh all HTML component with lmt-... attributes.</p>
+        <h2>Dependencies</h2>
+        <ol>
+            <li>jquery-ui.css (bundled)</li>
+            <li>bootstrap.min.css (bundled)</li>
+            <li>jquery-3.3.1.min.js</li>
+            <li>jquery-ui.min.js (bundled)</li>
+            <li>bootstrap.bundle.min.js (bundled)</li>
+            <li>lottie.min.js (bundled)</li>
+        </ol>
+    </article>
+</div>
+
+@functions{
+
+}

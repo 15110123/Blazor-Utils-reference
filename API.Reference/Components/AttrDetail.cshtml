@@ -1,0 +1,103 @@
+﻿<div class="attrDetail">
+    <link rel="stylesheet" href="/css/attrDetail.css"/>
+    <h1>@name</h1>
+    <h2>Type</h2>
+    <label>@GetAttrType()</label>
+    <h2>Dependency:</h2>
+    <label>BlazorUtils.js: >=@minJsApi</label>
+    <label>Dom: >=@minDomApi</label>
+    <label>Cookie: >=@minCookieApi</label>
+    <h2>Summary</h2>
+    <p>@summary</p>
+    <h2>Value</h2>
+    <p>
+        @if (value == null)
+        {
+            <text>This attribute do not need value.</text>
+        }
+        else
+        {
+            @value
+        }
+    </p>
+    <h2>Parameter attributes</h2>
+    @if (parameters == null)
+    {
+        <p>This attribute do not need parameter.</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Summary</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ele in parameters)
+                {
+                    <tr>
+                        <td>@ele.name</td>
+                        <td>@ele.summary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (isNoneParamAllowed)
+        {
+            <label>Note: @name allows usage of non-parameter.</label>
+        }
+    }
+    <h2>Details</h2>
+    @ChildContent
+</div>
+
+    @functions{
+        [Parameter]
+        private string name { get; set; }
+
+        [Parameter]
+        private int type { get; set; }
+
+        [Parameter]
+        private string minJsApi { get; set; }
+
+        [Parameter]
+        private string minDomApi { get; set; }
+
+        [Parameter]
+        private string minCookieApi { get; set; }
+
+        [Parameter]
+        private string summary { get; set; }
+
+        [Parameter]
+        private string value { get; set; }
+
+        [Parameter]
+        private (string name, string summary)[] parameters { get; set; }
+
+        [Parameter]
+        private bool isNoneParamAllowed { get; set; }
+
+        [Parameter]
+        private RenderFragment ChildContent { get; set; }
+
+        private string GetAttrType()
+        {
+            switch (type)
+            {
+                case 0:
+                    return "Responses to client";
+                case 1:
+                    return "Generating value";
+                case 2:
+                    return "Containing effects";
+                case 3:
+                    return "parameter";
+                default:
+                    return "(updating)";
+            }
+        }
+    }

@@ -1,0 +1,12 @@
+﻿.behaviourAttr {
+    padding: 40px 80px 0 80px;
+}
+
+    .behaviourAttr * {
+        font-size: 23px;
+        text-indent: 30px;
+    }
+
+    .behaviourAttr h1{
+        font-size: 60px;
+    }

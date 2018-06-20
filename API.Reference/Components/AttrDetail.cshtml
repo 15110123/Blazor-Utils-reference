@@ -32,6 +32,7 @@
                 <tr>
                     <td>Name</td>
                     <td>Summary</td>
+                    <td>Default</td>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                     <tr>
                         <td>@ele.name</td>
                         <td>@ele.summary</td>
+                        <td>@ele.defaultVal</td>
                     </tr>
                 }
             </tbody>
@@ -76,7 +78,7 @@
         private string value { get; set; }
 
         [Parameter]
-        private (string name, string summary)[] parameters { get; set; }
+        private (string name, string summary, string defaultVal)[] parameters { get; set; }
 
         [Parameter]
         private bool isNoneParamAllowed { get; set; }
@@ -94,8 +96,6 @@
                     return "Generating value";
                 case 2:
                     return "Containing effects";
-                case 3:
-                    return "parameter";
                 default:
                     return "(updating)";
             }

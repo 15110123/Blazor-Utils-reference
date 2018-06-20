@@ -1,0 +1,17 @@
+﻿@page "/behaviourAttr/lmtdialog"
+
+<AttrDetail name="lmt-dialog" type="2" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Div/span displays as a dialog." value="(optional) Dialog text title. If not set, there will be no title displayed.">
+    <p>Converting a div into a dialog container. User can move or close it easily. When an lmt-dialog is rendered, it cannot be re-updated title or content by LMTBehaviours(). You may want to force Blazor to re-rendered again.</p>
+    <Demo codes=@(new[]{"<div lmt-dialog=\"Demo dialog\">", "<h1>You can move or close me :x</h1>", "</div>"})>
+        <div lmt-dialog="Demo dialog">
+            <h1>You can move or close me :x</h1>
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

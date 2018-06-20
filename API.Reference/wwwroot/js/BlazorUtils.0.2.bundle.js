@@ -1,6 +1,21 @@
 ﻿//LMT Blazor Utils 0.2 bundled
 //If a jQuery method has both get and set function, add number 2 after function name of the "get" one
 
+var LMTCDNDone = false;
+var LMTCDNLottieDone = false;
+
+$(() => {
+    LMTDomBoot();
+    LMTCookieBoot();
+    $.getScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+        .done(() => {
+            $.getScript('https://cdn.jsdelivr.net/gh/twbs/bootstrap/dist/js/bootstrap.bundle.min.js')
+                .done(() => {
+                    LMTCDNDone = true;
+                });
+        });
+});
+
 var lmtCssNode1 = document.createElement("link");
 lmtCssNode1.href = "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
 lmtCssNode1.rel = "stylesheet";
@@ -11,22 +26,6 @@ lmtCssNode2.rel = "stylesheet";
 
 document.head.appendChild(lmtCssNode1);
 document.head.appendChild(lmtCssNode2);
-
-var LMTCDNDone = false;
-
-$(() => {
-    LMTDomBoot();
-    LMTCookieBoot();
-    $.getScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js')
-        .done(() => {
-            $.getScript('https://cdn.jsdelivr.net/gh/twbs/bootstrap/dist/js/bootstrap.bundle.min.js')
-                .done(() => {
-                    $.getScript('https://cdn.jsdelivr.net/gh/airbnb/lottie-web/build/player/lottie.min.js').done(() => {
-                        LMTCDNDone = true;
-                    });
-                });
-        });
-});
 
 function LMTCookieBoot() {
     //Reference to https://www.w3schools.com/js/js_cookies.asp
@@ -68,7 +67,7 @@ function LMTDomBoot() {
             }
 
             let getValParse = (obj, defaultVal) => {
-                if (obj == null)
+                if (obj == null || obj == "")
                     return defaultVal;
                 else
                     return obj;
@@ -120,7 +119,7 @@ function LMTDomBoot() {
                     ele.value = randomIntInclusive(parseInt(params[0]), parseInt(params[1]));
                 });
             //lmt-accord
-            $("[lmt-accord]").accordion({heightStyle: "content"});
+            $("[lmt-accord]").accordion({ heightStyle: "content" });
             //lmt-autocomp
             $.each($("[lmt-autocomp]"),
                 (ind, ele) => {
@@ -131,12 +130,14 @@ function LMTDomBoot() {
             //lmt-date
             $.each($("[lmt-date]"), (ind, ele) => {
                 let dateFormat = getValParse(ele.getAttribute("lmt-date"), "mm/dd/yy");
-                $(ele).datepicker({dateFormat});
+                $(ele).datepicker({ dateFormat });
             });
             //lmt-dialog
             $.each($("[lmt-dialog]"), (ind, ele) => {
+                if (ele.isDialog != undefined) return;
+                ele.isDialog = true;
                 let title = getValParse(ele.getAttribute("lmt-dialog"), "");
-                $(ele).dialog({title});
+                $(ele).dialog({ title });
             });
             //lmt-tip
             $.each($("[lmt-tip]"),
@@ -145,7 +146,16 @@ function LMTDomBoot() {
                 });
             //lmt-bm
             $.each($("[lmt-bm]"),
-                (ind, val) => {
+                function lmtbmFunc(ind, val) {
+                    if (!LMTCDNLottieDone) {
+                        $.getScript('https://cdn.jsdelivr.net/gh/airbnb/lottie-web/build/player/lottie.min.js').done(() => {
+                            LMTCDNLottieDone = true;
+                            lmtbmFunc(ind, val);
+                        });
+                        return;
+                    }
+                    if (val.islmtbm != undefined) return;
+                    val.islmtbm = true;
                     let objName = getValParse(val.getAttribute("lmt-bm-name"), null);
                     let speed = getValParse(val.getAttribute("lmt-bm-speed"), "1");
                     let direction = getValParse(val.getAttribute("lmt-bm-direction"), "1");
@@ -161,7 +171,7 @@ function LMTDomBoot() {
                     animation.setSpeed(parseInt(speed));
                     animation.setDirection(parseInt(direction));
 
-                    if (boolParse(val.getAttribute("lmt-bm-autoplay"))) {
+                    if (boolParse(getValParse(val.getAttribute("lmt-bm-autoplay"), "true"))) {
                         animation.play();
                     }
 
@@ -171,13 +181,17 @@ function LMTDomBoot() {
             //lmt-filter
             $.each($("[lmt-filter]"),
                 (ind, val) => {
+                    if (val.islmtfilter != undefined) return;
+                    val.islmtfilter = true;
                     var colorRate = val.getAttribute("lmt-filter").split(',');
                     val.style.position = "relative";
-                    $(val).append(`<div style="z-index: ${5 * (ind + 1)}; position: absolute; background-color: ${colorRate[0]}; width: 100%; height: 100%; left: 0; top: 0; opacity: ${colorRate[1] ? colorRate[1] : "0.5"}"/>`);
+                    $(val).append(`<div style="z-index: 20; position: absolute; background-color: ${colorRate[0]}; width: 100%; height: 100%; left: 0; top: 0; opacity: ${colorRate[1] ? colorRate[1] : "0.5"}"/>`);
                 });
             //lmt-grid
             $.each($("[lmt-grid]"),
                 (ind, val) => {
+                    if (val.islmtgrid != undefined) return;
+                    val.islmtgrid = true;
                     let param = val.getAttribute("lmt-grid").split(',');
                     let isFluid = boolParse(val.getAttribute("lmt-grid-fluid"));
                     val.className += isFluid ? " container-fluid" : " container";
@@ -196,6 +210,8 @@ function LMTDomBoot() {
             //lmt-skeleton
             $.each($("[lmt-skeleton]"), (ind, ele) => {
                 $.each($(ele.children), (childInd, childEle) => {
+                    if (childEle.islmtskeleton != undefined) return;
+                    childEle.islmtskeleton = true;
                     $(childEle).css("background", "linear-gradient(90deg, #ffffff, #d4d4d4, #ffffff)")
                         .css("background-size", "600% 600%");
 
@@ -209,6 +225,8 @@ function LMTDomBoot() {
             //lmt-scroll
             $.each($("[lmt-scroll]"),
                 (ind, val) => {
+                    if (vel.islmtscroll != undefined) return;
+                    val.islmtscroll = true;
                     let pxVal = val.getAttribute("lmt-scroll");
                     val.addEventListener("click", () => {
                         $('html').animate({
@@ -219,6 +237,8 @@ function LMTDomBoot() {
             //lmt-scroll-to
             $.each($("[lmt-scroll-to]"),
                 (ind, val) => {
+                    if (vel.islmtscrollto != undefined) return;
+                    val.islmtscrollto = true;
                     let selector = val.getAttribute("lmt-scroll-to");
                     val.addEventListener("click", () => {
                         $('html').animate({

@@ -1,0 +1,17 @@
+﻿@page "/behaviourAttr/lmtfilter"
+
+<AttrDetail name="lmt-filter" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Add a filter layer above an element." value="(required) CSS color of the filter and an (optional) opacity rate, separated by comma.">
+    <p>Add a filter layer above an element. Z-index of the layer is 20 by default. Without opacity rate, the equivalent css property will be set to 0.5</p>
+    <Demo codes=@(new[]{"<div style=\"width: 300px; height: 300px; text-indent: 0\" lmt-filter=\"#000,0.7\">", "<img src=\"/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png\" style=\"width: 100%; height: 100%\"/>", "</div>"})>
+        <div style="width: 300px; height: 300px; text-indent: 0" lmt-filter="#000,0.7">
+        <img src="/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png" style="width: 100%; height: 100%"/>
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

@@ -1,0 +1,15 @@
+﻿@page "/behaviourAttr/lmtbm"
+
+<AttrDetail name="lmt-bm" type="2" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Display Lottie web animation." value="(required) Path to JSON animation file." parameters=@(new[] {("lmt-bm-name", "Name of the global Js object, represents the animation.", "none. Global object will not be initialized."), ("lmt-bm-autoplay", "A string boolean shows whether the animation automatically runs or not.", "true"), ("lmt-bm-loop", "A string boolean shows whether the animation runs in loop or not.", "false"), ("lmt-bm-speed", "A string number represents animation speed.", "1 - normal"), ("lmt-bm-direction", "A string number represents direction. 1 is forward, -1 is reverse", "1")})>
+    <p>Display Lottie web animation. Json files can be downloaded <a target="_blank" href="https://lottiefiles.com">here</a>.</p>
+    <Demo codes=@(new[]{"<div style=\"width: 300px; height: 300px\" lmt-bm=\"/json/funky_chicken.json\" lmt-bm-loop=\"true\"></div>"})>
+        <div style="width: 300px; height: 300px" lmt-bm="/json/funky_chicken.json" lmt-bm-loop="true"></div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

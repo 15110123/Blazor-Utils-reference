@@ -1,0 +1,15 @@
+﻿@page "/behaviourAttr/lmtvalnum"
+
+<AttrDetail name="lmt-val-num" type="1" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Automatically generate a random number for element's value." value="(Required) 2 minimum and maximum number, separated by a comma">
+    <p>Automatically generate a random number for element's value attribute. lmt-val-num is useful for some specific scenarios. Notice that everytime LMTBehaviours is called, element with lmt-val-num will have another random value.</p>
+    <Demo codes=@(new[]{"<input style=\"width: 100%\" type=\"text\" lmt-val-num=\"10,50\" />"})>
+        <input style="width: 100%" type="text" lmt-val-num="10,50" />
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

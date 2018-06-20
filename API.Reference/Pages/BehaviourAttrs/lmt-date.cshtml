@@ -1,0 +1,17 @@
+﻿@page "/behaviourAttr/lmtdate"
+
+<AttrDetail name="lmt-date" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Add calendar popup for completion." value="(optional) Date format. mm/dd/yy is default.">
+    <p>After being focused, element with lmt-date will show a calendar popup for convenience.</p>
+    <Demo codes=@(new[]{"<input style=\"width: 100%\" type=\"text\" placeholder=\"click me!\" lmt-date />", "<input style=\"width: 100%\" type=\"text\" placeholder=\"click me! I'm dd/mm/yy\" lmt-date=\"dd/mm/yy\" />"})>
+        <br />
+        <input style="width: 100%" type="text" placeholder="click me!" lmt-date />
+        <input style="width: 100%" type="text" placeholder="click me! I'm dd/mm/yy" lmt-date="dd/mm/yy" />
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

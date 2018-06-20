@@ -19,6 +19,30 @@
     <Content Update="Components\Footer.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-bm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-filter.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-tip.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-dialog.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-date.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-autocomp.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-accord.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-val-num.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\BehaviourAttrs\lmt-val-guid.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

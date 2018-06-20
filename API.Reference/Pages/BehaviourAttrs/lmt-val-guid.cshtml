@@ -1,11 +1,11 @@
 ﻿@page "/behaviourAttr/lmtvalguid"
 
-<AttrDetail name="lmt-val-guid" type="0" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Automatically generate a GUID string for element's value.">
+<AttrDetail name="lmt-val-guid" type="1" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Automatically generate a GUID string for element's value.">
     <p>Automatically generate a GUID string for element's value attribute. lmt-val-guid is useful for some specific scenarios. Below is an example.</p>
     <p>Imagine you are creating an add or update page, which purpose is to add/update a record of a table. This table have an ID column that is set with GUID strings randomly. The page contains a HTML form that will send POST request to an endpoint, including an input named ID. In the server process, if ID is null, back-end must generate a GUID before adding data.</p>
     <p>But there is a better way: Why not let client machine generate the id for you? Moreover, if you are using ORM like Entity Framework, you can use AddOrUpdate efficiently from now on.</p>
-    <Demo codes=@(new[]{"<input style=\"width: 100%\" type=\"text\" value=\"trying to change my value?\" lmt-readonly=\"No, you can't =]]\" />"})>
-        <input style="width: 100%" type="text" value="trying to change my value?" lmt-readonly="No, you can't =]]" />
+    <Demo codes=@(new[]{"<input style=\"width: 100%\" type=\"text\" lmt-val-guid />"})>
+        <input style="width: 100%" type="text" lmt-val-guid />
     </Demo>
 </AttrDetail>
 

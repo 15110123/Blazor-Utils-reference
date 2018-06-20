@@ -1,0 +1,33 @@
+﻿@page "/behaviourAttr/lmtaccord"
+
+<AttrDetail name="lmt-accord" type="2" minJsApi="0.1" minDomApi="Any" minCookieApi="Any" summary="Convert a div/span element into a collapsible content panels container.">
+    <p>Convert a div/span element into a content panels container. those panels are collapsible, and are auto-sized in real-time.</p>
+    <p>For the best result, div/span having lmt-accord should include headers and divs containing unordered or ordered list. Check out the demo for reference.</p>
+    <p>In case you didn't know, our sidebar menu is built by lmt-accord! ;)</p>
+    <Demo codes=@(new[]{"<div lmt-accord>", "<h1>Panel1</h1>", "<div>", "<ul>", "<li>Item 1</li>", "<li>Item 2</li>", "<li>Item 3</li>", "</ul>", "</div>", "<h2>Panel2 - sub of panel1 because of h2 tag</h2>", "<div>", "<ul>", "<li>Item 4</li>", "<li>Item 5</li>", "</ul>", "</div>", "</div>"})>
+        <div lmt-accord>
+            <h1>Panel1</h1>
+            <div>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </div>
+            <h2>Panel2 - sub of panel1 because of h2 tag</h2>
+            <div>
+                <ul>
+                    <li>Item 4</li>
+                    <li>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

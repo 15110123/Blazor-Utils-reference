@@ -225,7 +225,7 @@ function LMTDomBoot() {
             //lmt-scroll
             $.each($("[lmt-scroll]"),
                 (ind, val) => {
-                    if (vel.islmtscroll != undefined) return;
+                    if (val.islmtscroll != undefined) return;
                     val.islmtscroll = true;
                     let pxVal = val.getAttribute("lmt-scroll");
                     val.addEventListener("click", () => {
@@ -237,7 +237,7 @@ function LMTDomBoot() {
             //lmt-scroll-to
             $.each($("[lmt-scroll-to]"),
                 (ind, val) => {
-                    if (vel.islmtscrollto != undefined) return;
+                    if (val.islmtscrollto != undefined) return;
                     val.islmtscrollto = true;
                     let selector = val.getAttribute("lmt-scroll-to");
                     val.addEventListener("click", () => {

@@ -1,5 +1,6 @@
 ﻿<div class="attrDetail">
     <link rel="stylesheet" href="/css/attrDetail.css"/>
+    <a href="/"><img class="icon home" src="/img/svg/home.svg" /></a>
     <h1>@name</h1>
     <h2>Type</h2>
     <label>@GetAttrType()</label>
@@ -39,9 +40,9 @@
                 @foreach (var ele in parameters)
                 {
                     <tr>
-                        <td>@ele.name</td>
-                        <td>@ele.summary</td>
-                        <td>@ele.defaultVal</td>
+                        <td style="text-indent: 0">@ele.name</td>
+                        <td style="text-indent: 0">@ele.summary</td>
+                        <td style="text-indent: 0">@ele.defaultVal</td>
                     </tr>
                 }
             </tbody>

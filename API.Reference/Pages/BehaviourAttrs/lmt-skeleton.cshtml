@@ -1,0 +1,21 @@
+﻿@page "/behaviourAttr/lmtskeleton"
+
+<AttrDetail name="lmt-skeleton" type="2" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Convert a div into a skeleton loading container.">
+    <p>Convert a div into a skeleton loading container. For the best result, fully build a div with all of its children first.</p>
+    <p>As a limitation, lmt-skeleton div should be lay on white background. This may be fixed in newer versions.</p>
+    <Demo codes=@(new[]{"<div lmt-skeleton>", "<div style=\"width: 200px; height: 200px\"></div>", "<h2>Loading...</h2>", "<h2>Loading...</h2>", "<h2>Loading...</h2>", "</div>"})>
+        <div lmt-skeleton>
+            <div style="width: 200px; height: 200px"></div>
+            <h2>Loading...</h2>
+            <h2>Loading...</h2>
+            <h2>Loading...</h2>
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

@@ -1,0 +1,21 @@
+﻿@page "/behaviourAttr/lmtfx"
+
+<AttrDetail name="lmt-fx" type="2" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Add jQuery UI effects by seemlessly initializing the effect-running functions." value="(required) Effect name (based on jQuery UI, lower-case) and function name, separated by a comma." parameters=@(new[] {("lmt-fx-duration", "Effect duration in ms.", "500"), ("lmt-fx-to", "use for transfer effect only: Selector of the destionation DOM.", "(empty string)"), ("lmt-fx-class", "Use for transfer effect only: classname of the transfering rectangle. Try this for redesign effect.", "(empty)"), ("lmt-fx-size", "Use for size effect only: Final size to scale to, including width and height, separated by a comma.", "200,60"), ("lmt-fx-percent", "Use for scale effect only: Scaling percentage. If larger than 100, the element will become larger. Or else, it will be smaller", "50")})>
+    <p>Add jQuery UI effects by seemlessly initializing the effect-running functions. The function name is declared by developers. Function can be called by Js, HTML event attributes or Blazor.Utils.Dom's Eval().</p>
+    <Demo codes=@(new[]{"<img style=\"width: 200px; height: 200px\" src=\"/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png\" lmt-fx=\"transfer,imgFx\" lmt-fx-class=\"transferBox\" lmt-fx-to=\".footer\"/>", "<style>", ".transferBox{", "border: 1px dashed #000;", "}", "</style>", "<button onclick=\"imgFx()\">Click me for transfer effect!</button>"})>
+        <img style="width: 200px; height: 200px" src="/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png" lmt-fx="transfer,imgFx" lmt-fx-class="transferBox" lmt-fx-to=".footer"/>
+        <style>
+            .transferBox{
+                border: 1px dashed #000;
+            }
+        </style>
+        <button onclick="imgFx()">Click me for transfer effect!</button>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

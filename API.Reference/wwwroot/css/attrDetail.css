@@ -26,3 +26,8 @@
     text-align: center;
     font-weight: bold;
 }
+
+.attrDetail .icon.home{
+    width: 35px;
+    height: 35px;
+}

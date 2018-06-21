@@ -1,0 +1,15 @@
+﻿@page "/behaviourAttr/lmtscroll"
+
+<AttrDetail name="lmt-scroll" type="0" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Scroll to specific destionation in pixel when being clicked." value="(required) A string number represents destionation position vertically, in pixel">
+    <p>Scroll to specific destionation in pixel when being clicked. Setting value to zero equivalents to scrolling to top.</p>
+    <Demo codes=@(new[]{"<button lmt-scroll=\"30\">Scroll to 30 pixels of this page!</button>"})>
+        <button lmt-scroll="30">Scroll to 30 pixels of this page!</button>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

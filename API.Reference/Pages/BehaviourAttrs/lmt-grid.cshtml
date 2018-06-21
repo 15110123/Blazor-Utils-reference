@@ -1,0 +1,24 @@
+﻿@page "/behaviourAttr/lmtgrid"
+
+<AttrDetail name="lmt-grid" type="0" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Convert a div into a Bootstrap 4 grid container." value="multiple (required) Device screen size-(optional) column width, separated by commas." parameters=@(new[] {("lmt-grid-fluid", "A string boolean represents whether the container is fluid or not.", "false")})>
+    <p>Convert a div into Bootstrap 4 grid container. All children will become rows, and all of their children will be columns.</p>
+    <Demo codes=@(new[]{"<div lmt-grid=\"md-4,md-8\" lmt-grid-fluid=\"true\">", "<div>", "<div>", "<h2>This should be col-md-4</h2>", "</div>", "<div>", "<h2>This should be col-md-8</h2>", "</div>", "</div>", "</div>"})>
+        <div lmt-grid="md-4,md-8" lmt-grid-fluid="true">
+            <div>
+                <div>
+                    <h2>This should be col-md-4</h2>
+                </div>
+                <div>
+                    <h2>This should be col-md-8</h2>
+                </div>
+            </div>
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

@@ -10,3 +10,8 @@
     .behaviourAttr h1{
         font-size: 60px;
     }
+
+    .behaviourAttr .icon.home {
+        width: 35px;
+        height: 35px;
+    }

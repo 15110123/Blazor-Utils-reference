@@ -1,0 +1,19 @@
+﻿@page "/behaviourAttr/lmtscrollmove"
+
+<AttrDetail name="lmt-scroll-move" type="0" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Activate horizontal moving effects for HTML elements." value="(required) A string number represents distance of moving. Set minus number for reversing direction (right to left).">
+    <p>Activate horizontal moving effects for HTML elements. Effects are started when elements begin to show by scrolling.</p>
+    <p>lmt-scroll-move can only work with elements' positions which can make left, right, top, bottom effective. These are fixed, absolute, relative and sticky.</p>
+    <Demo codes=@(new[]{"<div style=\"position: relative; height: 200px\">", "<img style=\"left: 0px; width: 200px; height: 200px; position: absolute\" lmt-scroll-move=\"200\" src=\"/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png\" />", "<img style=\"right: 0px; width: 200px; height: 200px; position: absolute\" lmt-scroll-move=\"-200\" src=\"/img/android_app.png\" />", "</div>"})>
+        <div style="position: relative; height: 200px">
+            <img style="left: 0px; width: 200px; height: 200px; position: absolute" lmt-scroll-move="200" src="/img/PRIVATE-INVESTIGATOR-UNLOCK-CELLPHONE.png" />
+            <img style="right: 0px; width: 200px; height: 200px; position: absolute" lmt-scroll-move="-200" src="/img/android_app.png" />
+        </div>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

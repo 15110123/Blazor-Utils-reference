@@ -1,0 +1,15 @@
+﻿@page "/behaviourAttr/lmtscrollto"
+
+<AttrDetail name="lmt-scroll-to" type="0" minJsApi="0.2" minDomApi="Any" minCookieApi="Any" summary="Scroll to a specific element when being clicked." value="(required) A selector string indicates the element to scroll to">
+    <p class="scrollToHere">Scroll to a specific element when being clicked. If the selector points to multiple elements, the first one in DOM Node Collection will be chosen.</p>
+    <Demo codes=@(new[]{"<button lmt-scroll-to=\"label\">Scroll to the first label(Responses to client)!</button>"})>
+        <button lmt-scroll-to="label">Scroll to the first label(Responses to client)!</button>
+    </Demo>
+</AttrDetail>
+
+@functions{
+    protected override async Task OnAfterRenderAsync()
+    {
+        LMTBehaviours();
+    }
+}

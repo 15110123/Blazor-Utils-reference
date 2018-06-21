@@ -19,6 +19,24 @@
     <Content Update="Components\Footer.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-fx.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-scroll-move.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-scroll-to.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-scroll.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-skeleton.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\BehaviourAttrs\lmt-grid.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\BehaviourAttrs\lmt-bm.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
